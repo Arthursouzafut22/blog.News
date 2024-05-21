@@ -1,0 +1,136 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 25px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+nav :first-child {
+  font-size: clamp(18px, 4vw, 23px);
+  font-weight: bold;
+}
+
+nav a {
+  font-size: clamp(15px, 4vw, 17px);
+  display: block;
+  text-decoration: none;
+  color: black;
+  padding-bottom: 5px;
+  position: relative;
+}
+
+nav a::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  display: block;
+  width: 0%;
+  height: 4px;
+  background-color: #f69cfe;
+  transition: 0.5s;
+  transform: translateX(-50%);
+}
+
+nav a:hover::before {
+  width: 100%;
+}
+
+#formulario {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 400px;
+}
+
+#buscar {
+  font-size: clamp(14px, 4vw, 17px);
+  border: none;
+  display: block;
+  border-radius: 7px;
+  padding: 8px;
+  width: 100%;
+  box-shadow: 6px 6px 15px 4px rgba(204, 204, 204, 0.33);
+}
+
+#buscar:focus {
+  outline-color: #e8e8e8;
+  background: #e8e8e8;
+  box-shadow: inset 20px 20px 60px #c5c5c5, inset -20px -20px 60px #ffffff;
+  transition: 0.3s;
+}
+
+#submit {
+  font-size: clamp(14px, 4vw, 17px);
+  font-weight: 600;
+  padding: 8px;
+  display: block;
+  border-radius: 7px;
+  cursor: pointer;
+  border: none;
+  color: #b500c6;
+  background-color: #f69cfe;
+}
+
+.btn-mobile {
+  display: none;
+}
+
+@media (max-width: 788px) {
+  header {
+    flex-direction: row-reverse;
+  }
+  .menu {
+    display: none;
+    position: absolute;
+    top: 90px;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    z-index: 25;
+    background-color: white;
+    box-shadow: 6px 6px 15px 4px rgba(204, 204, 204, 0.33);
+    animation: showmenu 0.5s forwards ;
+  }
+
+  .menu.active {
+    display: block;
+  }
+
+
+  @keyframes showmenu {
+    from {
+      opacity: 0;
+      transform: translateY(40%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+
+  }
+  .btn-mobile {
+    font-size: 15px;
+    display: block;
+    font-weight: 600;
+    padding: 8px;
+    border-radius: 7px;
+    cursor: pointer;
+    border: none;
+    color: #b500c6;
+    background-color: #f69cfe;
+    border: none;
+    padding: 8px;
+  }
+  #submit {
+    font-size: 14px;
+  }
+}
